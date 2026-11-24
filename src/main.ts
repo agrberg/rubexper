@@ -1,8 +1,15 @@
 import { EXAMPLES } from './examples.ts';
 import { RegexSyntaxError } from './parser/ast.ts';
 import { parse } from './parser/parser.ts';
+import { PALETTE } from './render/palette.ts';
 import { renderSvg } from './render/svg.ts';
 import { decodeHash, encodeHash, type RegexInput } from './url.ts';
+
+for (const [family, shades] of Object.entries(PALETTE)) {
+  for (const [shade, hex] of Object.entries(shades)) {
+    document.documentElement.style.setProperty(`--${family}-${shade}`, hex);
+  }
+}
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 app.innerHTML = `
@@ -111,7 +118,7 @@ app.querySelector('#download-png')!.addEventListener('click', () => {
       height: image.height * scale,
     });
     const context = canvas.getContext('2d')!;
-    context.fillStyle = '#fff';
+    context.fillStyle = PALETTE.night.page;
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
     canvas.toBlob((blob) => blob && download('regex.png', blob));

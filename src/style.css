@@ -3,24 +3,24 @@
   font-family: ui-sans-serif, system-ui, sans-serif;
 }
 ::selection {
-  background: #7a1850;
+  background: var(--magenta-selection);
 }
 body {
   margin: 0;
   padding: 48px;
-  background: #0f172a;
-  color: #00b8db;
+  background: var(--night-page);
+  color: var(--cyan-base);
 }
 code {
   padding: 4px;
-  background: #1d293d;
+  background: var(--night-panel);
 }
 a {
-  color: #f6339a;
+  color: var(--magenta-base);
   font-style: italic;
 }
 a:hover {
-  color: #fb64b6;
+  color: var(--magenta-bright);
 }
 header h1 {
   margin: 0 0 8px;
@@ -30,7 +30,7 @@ header h1 {
 }
 header p {
   margin: 0 0 24px;
-  color: #f6339a;
+  color: var(--magenta-base);
   font:
     300 1.25rem ui-monospace,
     Menlo,
@@ -46,7 +46,7 @@ form {
     1.2rem ui-monospace,
     Menlo,
     monospace;
-  color: #007595;
+  color: var(--cyan-deep);
 }
 input {
   font:
@@ -54,15 +54,15 @@ input {
     Menlo,
     monospace;
   padding: 8px;
-  border: 1px solid #007595;
+  border: 1px solid var(--cyan-deep);
   border-radius: 8px;
   background: transparent;
-  color: #00b8db;
+  color: var(--cyan-base);
 }
 input:focus {
-  outline: 2px solid #00b8db;
+  outline: 2px solid var(--cyan-base);
   outline-offset: 0;
-  border-color: #00b8db;
+  border-color: var(--cyan-base);
 }
 #source {
   flex: 1;
@@ -75,17 +75,17 @@ input:focus {
   margin-top: 12px;
   padding: 8px 12px;
   border-radius: 8px;
-  background: #4a1030;
-  color: #fda5d5;
-  border: 1px solid #f6339a;
+  background: var(--magenta-dark);
+  color: var(--magenta-pale);
+  border: 1px solid var(--magenta-base);
 }
 #diagram {
   margin-top: 16px;
   overflow-x: auto;
   border-radius: 8px;
   box-shadow:
-    0 0 0 4px #00b8db,
-    0 25px 50px -12px #f6339a;
+    0 0 0 4px var(--cyan-base),
+    0 25px 50px -12px var(--magenta-base);
 }
 #diagram:empty {
   display: none;
@@ -99,17 +99,17 @@ button {
   padding: 8px 16px;
   border: 0;
   border-radius: 8px;
-  background: #00d3f3;
-  color: #020618;
-  box-shadow: 0 4px 6px -1px #f6339a;
+  background: var(--cyan-bright);
+  color: var(--night-void);
+  box-shadow: 0 4px 6px -1px var(--magenta-base);
   cursor: pointer;
 }
 button:hover {
-  background: #53eafd;
-  box-shadow: 0 4px 6px -1px #fb64b6;
+  background: var(--cyan-light);
+  box-shadow: 0 4px 6px -1px var(--magenta-bright);
 }
 button:active {
-  background: #0092b8;
+  background: var(--cyan-dim);
   box-shadow: none;
 }
 #examples {
@@ -134,9 +134,9 @@ button:active {
   display: block;
   margin-top: 2px;
   overflow-x: auto;
-  color: #007595;
+  color: var(--cyan-deep);
 }
 #examples p {
   margin: 4px 0 0;
-  color: #0092b8;
+  color: var(--cyan-dim);
 }
