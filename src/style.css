@@ -68,3 +68,30 @@ button {
   background: #f7f6f0;
   cursor: pointer;
 }
+#examples {
+  margin-top: 32px;
+}
+#examples h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+#examples ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+#examples a {
+  font-weight: 600;
+}
+#examples code {
+  display: block;
+  margin-top: 2px;
+  overflow-x: auto;
+  color: #6b6659;
+}
+#examples p {
+  margin: 4px 0 0;
+  color: #555;
+}

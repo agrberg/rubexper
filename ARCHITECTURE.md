@@ -50,6 +50,8 @@ Layout constants (`CHAR_W`, `ROW_H`, and others) are fixed numbers. Text width i
 
 `main.ts` builds the page with `innerHTML`, re-renders on every `input` event, and writes the hash with `history.replaceState`. A `hashchange` event reads the hash back. `url.ts` converts between the hash and `{ source, flags }`. It always encodes a `/source/flags` literal, so a pattern that looks like `/a/` stays unambiguous.
 
+`examples.ts` lists the example patterns under the diagram. Each one is a plain link to its own hash, so the `hashchange` listener loads it. `examples.test.ts` parses every example, so a broken example fails CI. The Ruby conformance corpus also holds each example.
+
 SVG download uses a Blob. PNG download draws the SVG on a canvas at 2x scale.
 
 ## Conformance spec

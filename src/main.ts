@@ -1,3 +1,4 @@
+import { EXAMPLES } from './examples.ts';
 import { RegexSyntaxError } from './parser/ast.ts';
 import { parse } from './parser/parser.ts';
 import { renderSvg } from './render/svg.ts';
@@ -22,6 +23,10 @@ app.innerHTML = `
     <button type="button" id="download-svg">Download SVG</button>
     <button type="button" id="download-png">Download PNG</button>
   </div>
+  <section id="examples">
+    <h2>Examples</h2>
+    <ul></ul>
+  </section>
 `;
 
 const sourceInput = app.querySelector<HTMLInputElement>('#source')!;
@@ -47,6 +52,22 @@ function render(): void {
     diagram.innerHTML = '';
     errorBox.hidden = false;
     errorBox.textContent = `${error.message} (at position ${error.position})`;
+  }
+}
+
+function renderExamples(): void {
+  const list = app.querySelector('#examples ul')!;
+  for (const { title, source, flags, note } of EXAMPLES) {
+    const item = document.createElement('li');
+    const link = Object.assign(document.createElement('a'), {
+      href: `#${encodeHash({ source, flags })}`,
+      textContent: title,
+    });
+    link.addEventListener('click', () => window.scrollTo({ top: 0 }));
+    const code = Object.assign(document.createElement('code'), { textContent: `/${source}/${flags}` });
+    const caption = Object.assign(document.createElement('p'), { textContent: note });
+    item.append(link, code, caption);
+    list.append(item);
   }
 }
 
@@ -98,4 +119,5 @@ app.querySelector('#download-png')!.addEventListener('click', () => {
   image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(currentSvg)}`;
 });
 
+renderExamples();
 load();

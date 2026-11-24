@@ -6,3 +6,4 @@ a b|c d
 [a b]
 a\ b
 a [ ]b
+(?<verb>GET|POST|PUT|PATCH|DELETE) \s+ (?<path>/\S*) \s+ (?<status>\d{3}) # request line
