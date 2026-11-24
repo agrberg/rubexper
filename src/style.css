@@ -1,20 +1,40 @@
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   font-family: ui-sans-serif, system-ui, sans-serif;
+}
+::selection {
+  background: #7a1850;
 }
 body {
   margin: 0;
-  padding: 24px;
-  background: #fff;
-  color: #222;
+  padding: 48px;
+  background: #0f172a;
+  color: #00b8db;
+}
+code {
+  padding: 4px;
+  background: #1d293d;
+}
+a {
+  color: #f6339a;
+  font-style: italic;
+}
+a:hover {
+  color: #fb64b6;
 }
 header h1 {
-  margin: 0;
-  font-size: 1.4rem;
+  margin: 0 0 8px;
+  font-size: 3rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 header p {
-  margin: 4px 0 16px;
-  color: #555;
+  margin: 0 0 24px;
+  color: #f6339a;
+  font:
+    300 1.25rem ui-monospace,
+    Menlo,
+    monospace;
 }
 form {
   display: flex;
@@ -26,7 +46,7 @@ form {
     1.2rem ui-monospace,
     Menlo,
     monospace;
-  color: #6b6659;
+  color: #007595;
 }
 input {
   font:
@@ -34,8 +54,15 @@ input {
     Menlo,
     monospace;
   padding: 8px;
-  border: 1px solid #908c83;
-  border-radius: 6px;
+  border: 1px solid #007595;
+  border-radius: 8px;
+  background: transparent;
+  color: #00b8db;
+}
+input:focus {
+  outline: 2px solid #00b8db;
+  outline-offset: 0;
+  border-color: #00b8db;
 }
 #source {
   flex: 1;
@@ -47,33 +74,51 @@ input {
 #error {
   margin-top: 12px;
   padding: 8px 12px;
-  border-radius: 6px;
-  background: #fde8e4;
-  color: #8a1f11;
-  border: 1px solid #e8a79c;
+  border-radius: 8px;
+  background: #4a1030;
+  color: #fda5d5;
+  border: 1px solid #f6339a;
 }
 #diagram {
   margin-top: 16px;
   overflow-x: auto;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 4px #00b8db,
+    0 25px 50px -12px #f6339a;
+}
+#diagram:empty {
+  display: none;
 }
 .actions {
-  margin-top: 16px;
+  margin-top: 28px;
   display: flex;
-  gap: 8px;
+  gap: 12px;
 }
 button {
-  padding: 6px 12px;
-  border: 1px solid #908c83;
-  border-radius: 6px;
-  background: #f7f6f0;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #00d3f3;
+  color: #020618;
+  box-shadow: 0 4px 6px -1px #f6339a;
   cursor: pointer;
 }
+button:hover {
+  background: #53eafd;
+  box-shadow: 0 4px 6px -1px #fb64b6;
+}
+button:active {
+  background: #0092b8;
+  box-shadow: none;
+}
 #examples {
-  margin-top: 32px;
+  margin-top: 40px;
 }
 #examples h2 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
+  margin: 0 0 12px;
+  font-size: 2rem;
+  letter-spacing: -0.025em;
 }
 #examples ul {
   margin: 0;
@@ -89,9 +134,9 @@ button {
   display: block;
   margin-top: 2px;
   overflow-x: auto;
-  color: #6b6659;
+  color: #007595;
 }
 #examples p {
   margin: 4px 0 0;
-  color: #555;
+  color: #0092b8;
 }

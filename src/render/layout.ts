@@ -169,10 +169,14 @@ class Layout {
     const isIntersection = node.c.length === 1 && only!.k === 'set' && only.t === 'intersection';
     if (isIntersection) {
       const parts = only.c.map((part) => this.set({ k: 'set', t: 'character', neg: false, c: (part as Seq).c }));
-      return framed(stack(parts), `${node.neg ? 'Not in ' : 'In '}all of:`, 'frame charset');
+      return framed(stack(parts), `${node.neg ? 'Not in ' : 'In '}all of:`, setFrameClass(node.neg));
     }
     const items = node.c.map((item) => this.node(item));
-    return framed(stack(items.length ? items : [emptyBox()]), node.neg ? 'None of:' : 'One of:', 'frame charset');
+    return framed(
+      stack(items.length ? items : [emptyBox()]),
+      node.neg ? 'None of:' : 'One of:',
+      setFrameClass(node.neg),
+    );
   }
 }
 
@@ -212,6 +216,8 @@ function stack(items: Box[]): Box {
   return { w, h: y - 4, mid: (y - 4) / 2, svg };
 }
 
+const setFrameClass = (negated: boolean): string => (negated ? 'frame charset negated' : 'frame charset');
+
 function framed(inner: Box, label: string, cls: string): Box {
   const w = Math.max(inner.w + 2 * PAD, textWidth(label) + 12);
   const innerX = (w - inner.w) / 2;
@@ -220,7 +226,7 @@ function framed(inner: Box, label: string, cls: string): Box {
   const mid = innerY + inner.mid;
   const svg =
     `<rect class="${cls}" y="${LABEL_H}" width="${w}" height="${h - LABEL_H}" rx="6"/>` +
-    text(label, 6, 11, 'caption start') +
+    text(label, 6, 11, `caption start${cls.slice('frame'.length)}`) +
     rail(0, innerX, mid) +
     at(inner, innerX, innerY) +
     rail(innerX + inner.w, w, mid);

@@ -2,300 +2,420 @@
 
 exports[`renderSvg > draws (?<=\\$)\\d+(?:\\.\\d\\d)? 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 594.4 96" width="594.4" height="96"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame assertion" y="14" width="148.8" height="44" rx="6"/><text class="caption start" x="6" y="11">positive lookbehind</text><path class="rail" d="M0 36H53.60000000000001"/><g transform="translate(53.60000000000001 24)"><g transform="translate(0 0)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“$”</text></g></g><path class="rail" d="M95.20000000000002 36H148.8"/></g><path class="rail" d="M148.8 36H162.8"/><g transform="translate(162.8 24)"><path class="rail" d="M0 12H30"/><g transform="translate(30 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M86 12H116"/><path class="rail loop" d="M30 12q-10 0 -10 10v2q0 10 10 10h56q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M96 27l5 -5m-5 5l-5 -5"/><text class="caption" x="58" y="45">1 or more times</text></g><path class="rail" d="M278.8 36H292.8"/><g transform="translate(292.8 14)"><path class="rail" d="M0 22H20"/><g transform="translate(20 10)"><g transform="translate(0 0)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“.”</text></g><path class="rail" d="M41.6 12H55.6"/><g transform="translate(55.6 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M111.6 12H125.6"/><g transform="translate(125.6 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g></g><path class="rail" d="M201.6 22H221.6"/><path class="rail" d="M0 22q10 0 10 -10v-2q0 -10 10 -10H201.6q10 0 10 10v2q0 10 10 10"/></g></g><path class="rail" d="M554.4 48H576.4"/><circle class="terminal" cx="576.4" cy="48" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="594.4" height="96"/><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame assertion" y="14" width="148.8" height="44" rx="6"/><text class="caption start assertion" x="6" y="11">positive lookbehind</text><path class="rail" d="M0 36H53.60000000000001"/><g transform="translate(53.60000000000001 24)"><g transform="translate(0 0)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“$”</text></g></g><path class="rail" d="M95.20000000000002 36H148.8"/></g><path class="rail" d="M148.8 36H162.8"/><g transform="translate(162.8 24)"><path class="rail" d="M0 12H30"/><g transform="translate(30 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M86 12H116"/><path class="rail loop" d="M30 12q-10 0 -10 10v2q0 10 10 10h56q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M96 27l5 -5m-5 5l-5 -5"/><text class="caption" x="58" y="45">1 or more times</text></g><path class="rail" d="M278.8 36H292.8"/><g transform="translate(292.8 14)"><path class="rail" d="M0 22H20"/><g transform="translate(20 10)"><g transform="translate(0 0)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“.”</text></g><path class="rail" d="M41.6 12H55.6"/><g transform="translate(55.6 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M111.6 12H125.6"/><g transform="translate(125.6 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g></g><path class="rail" d="M201.6 22H221.6"/><path class="rail" d="M0 22q10 0 10 -10v-2q0 -10 10 -10H201.6q10 0 10 10v2q0 10 10 10"/></g></g><path class="rail" d="M554.4 48H576.4"/><circle class="terminal" cx="576.4" cy="48" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws (?<year>\\d{4})-(?<month>\\d{2}) 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396.8 106" width="396.8" height="106"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame" y="14" width="120" height="68" rx="6"/><text class="caption start" x="6" y="11">group “year” #1</text><path class="rail" d="M0 36H22"/><g transform="translate(22 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H10"/><g transform="translate(10 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M66 12H76"/><path class="rail loop" d="M10 12q-10 0 -10 10v2q0 10 10 10h56q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M76 27l5 -5m-5 5l-5 -5"/><text class="caption" x="38" y="45">4 times</text></g></g><path class="rail" d="M98 36H120"/></g><path class="rail" d="M120 36H134"/><g transform="translate(134 24)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“-”</text></g><path class="rail" d="M175.6 36H189.6"/><g transform="translate(189.6 0)"><rect class="frame" y="14" width="127.2" height="68" rx="6"/><text class="caption start" x="6" y="11">group “month” #2</text><path class="rail" d="M0 36H25.6"/><g transform="translate(25.6 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H10"/><g transform="translate(10 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M66 12H76"/><path class="rail loop" d="M10 12q-10 0 -10 10v2q0 10 10 10h56q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M76 27l5 -5m-5 5l-5 -5"/><text class="caption" x="38" y="45">2 times</text></g></g><path class="rail" d="M101.6 36H127.2"/></g></g><path class="rail" d="M356.8 48H378.8"/><circle class="terminal" cx="378.8" cy="48" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="396.8" height="106"/><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame" y="14" width="120" height="68" rx="6"/><text class="caption start" x="6" y="11">group “year” #1</text><path class="rail" d="M0 36H22"/><g transform="translate(22 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H10"/><g transform="translate(10 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M66 12H76"/><path class="rail loop" d="M10 12q-10 0 -10 10v2q0 10 10 10h56q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M76 27l5 -5m-5 5l-5 -5"/><text class="caption" x="38" y="45">4 times</text></g></g><path class="rail" d="M98 36H120"/></g><path class="rail" d="M120 36H134"/><g transform="translate(134 24)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“-”</text></g><path class="rail" d="M175.6 36H189.6"/><g transform="translate(189.6 0)"><rect class="frame" y="14" width="127.2" height="68" rx="6"/><text class="caption start" x="6" y="11">group “month” #2</text><path class="rail" d="M0 36H25.6"/><g transform="translate(25.6 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H10"/><g transform="translate(10 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><path class="rail" d="M66 12H76"/><path class="rail loop" d="M10 12q-10 0 -10 10v2q0 10 10 10h56q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M76 27l5 -5m-5 5l-5 -5"/><text class="caption" x="38" y="45">2 times</text></g></g><path class="rail" d="M101.6 36H127.2"/></g></g><path class="rail" d="M356.8 48H378.8"/><circle class="terminal" cx="378.8" cy="48" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws (?>a++) 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 302.4 106" width="302.4" height="106"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame assertion" y="14" width="222.4" height="68" rx="6"/><text class="caption start" x="6" y="11">atomic group</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H80.4"/><g transform="translate(80.4 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M122 12H202.4"/><path class="rail loop" d="M80.4 12q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M132 27l5 -5m-5 5l-5 -5"/><text class="caption" x="101.2" y="45">1 or more times, possessive</text></g></g><path class="rail" d="M212.4 36H222.4"/></g></g><path class="rail" d="M262.4 48H284.4"/><circle class="terminal" cx="284.4" cy="48" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="302.4" height="106"/><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame assertion" y="14" width="222.4" height="68" rx="6"/><text class="caption start assertion" x="6" y="11">atomic group</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H80.4"/><g transform="translate(80.4 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M122 12H202.4"/><path class="rail loop" d="M80.4 12q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M132 27l5 -5m-5 5l-5 -5"/><text class="caption" x="101.2" y="45">1 or more times, possessive</text></g></g><path class="rail" d="M212.4 36H222.4"/></g></g><path class="rail" d="M262.4 48H284.4"/><circle class="terminal" cx="284.4" cy="48" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws (?~ab)\\K\\G 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 664 82" width="664" height="82"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame" y="14" width="163.20000000000002" height="44" rx="6"/><text class="caption start" x="6" y="11">absence: anything but</text><path class="rail" d="M0 36H57.20000000000001"/><g transform="translate(57.20000000000001 24)"><g transform="translate(0 0)"><rect class="node literal" width="48.8" height="24" rx="5"/><text class="label literal" x="24.4" y="16">“ab”</text></g></g><path class="rail" d="M106 36H163.20000000000002"/></g><path class="rail" d="M163.20000000000002 36H177.20000000000002"/><g transform="translate(177.20000000000002 24)"><rect class="node anchor" width="185.6" height="24" rx="5"/><text class="label anchor" x="92.8" y="16">keep: reset match start</text></g><path class="rail" d="M362.8 36H376.8"/><g transform="translate(376.8 24)"><rect class="node anchor" width="207.20000000000002" height="24" rx="5"/><text class="label anchor" x="103.60000000000001" y="16">where the last match ended</text></g></g><path class="rail" d="M624 48H646"/><circle class="terminal" cx="646" cy="48" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="664" height="82"/><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame" y="14" width="163.20000000000002" height="44" rx="6"/><text class="caption start" x="6" y="11">absence: anything but</text><path class="rail" d="M0 36H57.20000000000001"/><g transform="translate(57.20000000000001 24)"><g transform="translate(0 0)"><rect class="node literal" width="48.8" height="24" rx="5"/><text class="label literal" x="24.4" y="16">“ab”</text></g></g><path class="rail" d="M106 36H163.20000000000002"/></g><path class="rail" d="M163.20000000000002 36H177.20000000000002"/><g transform="translate(177.20000000000002 24)"><rect class="node anchor" width="185.6" height="24" rx="5"/><text class="label anchor" x="92.8" y="16">keep: reset match start</text></g><path class="rail" d="M362.8 36H376.8"/><g transform="translate(376.8 24)"><rect class="node anchor" width="207.20000000000002" height="24" rx="5"/><text class="label anchor" x="103.60000000000001" y="16">where the last match ended</text></g></g><path class="rail" d="M624 48H646"/><circle class="terminal" cx="646" cy="48" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws (a)(?(1)b|c) 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.2 178" width="305.2" height="178"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="96" r="6"/><path class="rail" d="M18 96H40"/><g transform="translate(40 12)"><g transform="translate(0 48)"><rect class="frame" y="14" width="69.6" height="44" rx="6"/><text class="caption start" x="6" y="11">group #1</text><path class="rail" d="M0 36H13.999999999999996"/><g transform="translate(13.999999999999996 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g></g><path class="rail" d="M55.599999999999994 36H69.6"/></g><path class="rail" d="M69.6 84H83.6"/><g transform="translate(83.6 0)"><rect class="frame" y="14" width="141.6" height="140" rx="6"/><text class="caption start" x="6" y="11">if group 1 matched</text><path class="rail" d="M0 84H40"/><g transform="translate(40 24)"><g transform="translate(0 0)"><rect class="frame" y="14" width="61.6" height="44" rx="6"/><text class="caption start" x="6" y="11">then</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M51.6 36H61.6"/></g><g transform="translate(0 62)"><rect class="frame" y="14" width="61.6" height="44" rx="6"/><text class="caption start" x="6" y="11">else</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“c”</text></g></g><path class="rail" d="M51.6 36H61.6"/></g></g><path class="rail" d="M101.6 84H141.6"/></g></g><path class="rail" d="M265.2 96H287.2"/><circle class="terminal" cx="287.2" cy="96" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="305.2" height="178"/><circle class="terminal" cx="18" cy="96" r="6"/><path class="rail" d="M18 96H40"/><g transform="translate(40 12)"><g transform="translate(0 48)"><rect class="frame" y="14" width="69.6" height="44" rx="6"/><text class="caption start" x="6" y="11">group #1</text><path class="rail" d="M0 36H13.999999999999996"/><g transform="translate(13.999999999999996 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g></g><path class="rail" d="M55.599999999999994 36H69.6"/></g><path class="rail" d="M69.6 84H83.6"/><g transform="translate(83.6 0)"><rect class="frame" y="14" width="141.6" height="140" rx="6"/><text class="caption start" x="6" y="11">if group 1 matched</text><path class="rail" d="M0 84H40"/><g transform="translate(40 24)"><g transform="translate(0 0)"><rect class="frame" y="14" width="61.6" height="44" rx="6"/><text class="caption start" x="6" y="11">then</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M51.6 36H61.6"/></g><g transform="translate(0 62)"><rect class="frame" y="14" width="61.6" height="44" rx="6"/><text class="caption start" x="6" y="11">else</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“c”</text></g></g><path class="rail" d="M51.6 36H61.6"/></g></g><path class="rail" d="M101.6 84H141.6"/></g></g><path class="rail" d="M265.2 96H287.2"/><circle class="terminal" cx="287.2" cy="96" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws (a|b)c 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.2 114" width="237.2" height="114"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame" y="14" width="101.6" height="76" rx="6"/><text class="caption start" x="6" y="11">group #1</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H20"/><g transform="translate(20 0)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g></g><path class="rail" d="M61.6 12H81.6"/><path class="rail" d="M0 12q10 0 10 10v12q0 10 10 10H20"/><g transform="translate(20 32)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M61.6 44q9.999999999999996 0 9.999999999999996 -9.999999999999996v-12.000000000000007q0 -9.999999999999996 9.999999999999996 -9.999999999999996H81.6"/></g></g><path class="rail" d="M91.6 36H101.6"/></g><path class="rail" d="M101.6 36H115.6"/><g transform="translate(115.6 24)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“c”</text></g></g><path class="rail" d="M197.2 48H219.2"/><circle class="terminal" cx="219.2" cy="48" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="237.2" height="114"/><circle class="terminal" cx="18" cy="48" r="6"/><path class="rail" d="M18 48H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame" y="14" width="101.6" height="76" rx="6"/><text class="caption start" x="6" y="11">group #1</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><path class="rail" d="M0 12H20"/><g transform="translate(20 0)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g></g><path class="rail" d="M61.6 12H81.6"/><path class="rail" d="M0 12q10 0 10 10v12q0 10 10 10H20"/><g transform="translate(20 32)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M61.6 44q9.999999999999996 0 9.999999999999996 -9.999999999999996v-12.000000000000007q0 -9.999999999999996 9.999999999999996 -9.999999999999996H81.6"/></g></g><path class="rail" d="M91.6 36H101.6"/></g><path class="rail" d="M101.6 36H115.6"/><g transform="translate(115.6 24)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“c”</text></g></g><path class="rail" d="M197.2 48H219.2"/><circle class="terminal" cx="219.2" cy="48" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws [[:alpha:]\\p{Han}] 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.4 110" width="206.4" height="110"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="62" r="6"/><path class="rail" d="M18 62H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame charset" y="14" width="126.4" height="72" rx="6"/><text class="caption start" x="6" y="11">One of:</text><path class="rail" d="M0 50H10"/><g transform="translate(10 24)"><g transform="translate(25.200000000000003 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">alpha</text></g><g transform="translate(0 28)"><rect class="node class" width="106.4" height="24" rx="5"/><text class="label class" x="53.2" y="16">property Han</text></g></g><path class="rail" d="M116.4 50H126.4"/></g></g><path class="rail" d="M166.4 62H188.4"/><circle class="terminal" cx="188.4" cy="62" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="206.4" height="110"/><circle class="terminal" cx="18" cy="62" r="6"/><path class="rail" d="M18 62H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame charset" y="14" width="126.4" height="72" rx="6"/><text class="caption start charset" x="6" y="11">One of:</text><path class="rail" d="M0 50H10"/><g transform="translate(10 24)"><g transform="translate(25.200000000000003 0)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">alpha</text></g><g transform="translate(0 28)"><rect class="node class" width="106.4" height="24" rx="5"/><text class="label class" x="53.2" y="16">property Han</text></g></g><path class="rail" d="M116.4 50H126.4"/></g></g><path class="rail" d="M166.4 62H188.4"/><circle class="terminal" cx="188.4" cy="62" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws [^a-c&&[^b]] 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212" width="212" height="212"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="113" r="6"/><path class="rail" d="M18 113H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame charset" y="14" width="132" height="174" rx="6"/><text class="caption start" x="6" y="11">Not in all of:</text><path class="rail" d="M0 101H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="frame charset" y="14" width="112" height="44" rx="6"/><text class="caption start" x="6" y="11">One of:</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “c”</text></g></g><path class="rail" d="M102 36H112"/></g><g transform="translate(11.200000000000003 62)"><rect class="frame charset" y="14" width="89.6" height="78" rx="6"/><text class="caption start" x="6" y="11">One of:</text><path class="rail" d="M0 53H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="frame charset" y="14" width="69.6" height="44" rx="6"/><text class="caption start" x="6" y="11">None of:</text><path class="rail" d="M0 36H13.999999999999996"/><g transform="translate(13.999999999999996 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M55.599999999999994 36H69.6"/></g></g><path class="rail" d="M79.6 53H89.6"/></g></g><path class="rail" d="M122 101H132"/></g></g><path class="rail" d="M172 113H194"/><circle class="terminal" cx="194" cy="113" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="212" height="212"/><circle class="terminal" cx="18" cy="113" r="6"/><path class="rail" d="M18 113H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="frame charset negated" y="14" width="132" height="174" rx="6"/><text class="caption start charset negated" x="6" y="11">Not in all of:</text><path class="rail" d="M0 101H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="frame charset" y="14" width="112" height="44" rx="6"/><text class="caption start charset" x="6" y="11">One of:</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “c”</text></g></g><path class="rail" d="M102 36H112"/></g><g transform="translate(11.200000000000003 62)"><rect class="frame charset" y="14" width="89.6" height="78" rx="6"/><text class="caption start charset" x="6" y="11">One of:</text><path class="rail" d="M0 53H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="frame charset negated" y="14" width="69.6" height="44" rx="6"/><text class="caption start charset negated" x="6" y="11">None of:</text><path class="rail" d="M0 36H13.999999999999996"/><g transform="translate(13.999999999999996 24)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M55.599999999999994 36H69.6"/></g></g><path class="rail" d="M79.6 53H89.6"/></g></g><path class="rail" d="M122 101H132"/></g></g><path class="rail" d="M172 113H194"/><circle class="terminal" cx="194" cy="113" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws \\A[\\w+\\-.]+@[a-z\\d\\-]+(\\.[a-z\\d\\-]+)*\\.[a-z]+\\z 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1175.2 230" width="1175.2" height="230"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="110" r="6"/><path class="rail" d="M18 110H40"/><g transform="translate(40 12)"><g transform="translate(0 86)"><rect class="node anchor" width="128" height="24" rx="5"/><text class="label anchor" x="64" y="16">start of string</text></g><path class="rail" d="M128 98H142"/><g transform="translate(142 20)"><path class="rail" d="M0 78H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="140.8" height="128" rx="6"/><text class="caption start" x="6" y="11">One of:</text><path class="rail" d="M0 78H10.000000000000007"/><g transform="translate(10.000000000000007 24)"><g transform="translate(0 0)"><rect class="node class" width="120.8" height="24" rx="5"/><text class="label class" x="60.4" y="16">word character</text></g><g transform="translate(39.599999999999994 28)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“+”</text></g><g transform="translate(39.599999999999994 56)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“-”</text></g><g transform="translate(39.599999999999994 84)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“.”</text></g></g><path class="rail" d="M130.8 78H140.8"/></g><path class="rail" d="M150.8 78H160.8"/><path class="rail loop" d="M10 78q-10 0 -10 10v54q0 10 10 10h140.8q10 0 10 -10v-54q0 -10 -10 -10"/><path class="rail arrow" d="M160.8 93l5 -5m-5 5l-5 -5"/><text class="caption" x="80.4" y="163">1 or more times</text></g><path class="rail" d="M302.8 98H316.8"/><g transform="translate(316.8 86)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“@”</text></g><path class="rail" d="M358.40000000000003 98H372.40000000000003"/><g transform="translate(372.40000000000003 34)"><path class="rail" d="M0 64H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="112" height="100" rx="6"/><text class="caption start" x="6" y="11">One of:</text><path class="rail" d="M0 64H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “z”</text></g><g transform="translate(18 28)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><g transform="translate(25.2 56)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“-”</text></g></g><path class="rail" d="M102 64H112"/></g><path class="rail" d="M122 64H132"/><path class="rail loop" d="M10 64q-10 0 -10 10v40q0 10 10 10h112q10 0 10 -10v-40q0 -10 -10 -10"/><path class="rail arrow" d="M132 79l5 -5m-5 5l-5 -5"/><text class="caption" x="66" y="135">1 or more times</text></g><path class="rail" d="M504.40000000000003 98H518.4000000000001"/><g transform="translate(518.4000000000001 0)"><path class="rail" d="M0 98H20"/><g transform="translate(20 10)"><rect class="frame" y="14" width="207.6" height="158" rx="6"/><text class="caption start" x="6" y="11">group #1</text><path class="rail" d="M0 88H10"/><g transform="translate(10 24)"><g transform="translate(0 52)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“.”</text></g><path class="rail" d="M41.6 64H55.6"/><g transform="translate(55.6 0)"><path class="rail" d="M0 64H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="112" height="100" rx="6"/><text class="caption start" x="6" y="11">One of:</text><path class="rail" d="M0 64H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “z”</text></g><g transform="translate(18 28)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><g transform="translate(25.2 56)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“-”</text></g></g><path class="rail" d="M102 64H112"/></g><path class="rail" d="M122 64H132"/><path class="rail loop" d="M10 64q-10 0 -10 10v40q0 10 10 10h112q10 0 10 -10v-40q0 -10 -10 -10"/><path class="rail arrow" d="M132 79l5 -5m-5 5l-5 -5"/><text class="caption" x="66" y="135">1 or more times</text></g></g><path class="rail" d="M197.6 88H207.6"/></g><path class="rail" d="M227.6 98H247.6"/><path class="rail" d="M0 98q10 0 10 -10v-78q0 -10 10 -10H227.6q10 0 10 10v78q0 10 10 10"/><path class="rail loop" d="M20 98q-10 0 -10 10v74q0 10 10 10h207.6q10 0 10 -10v-74q0 -10 -10 -10"/><path class="rail arrow" d="M237.6 113l5 -5m-5 5l-5 -5"/><text class="caption" x="123.8" y="203">0 or more times</text></g><path class="rail" d="M766.0000000000001 98H780.0000000000001"/><g transform="translate(780.0000000000001 86)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“.”</text></g><path class="rail" d="M821.6000000000001 98H835.6000000000001"/><g transform="translate(835.6000000000001 62)"><path class="rail" d="M0 36H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="112" height="44" rx="6"/><text class="caption start" x="6" y="11">One of:</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “z”</text></g></g><path class="rail" d="M102 36H112"/></g><path class="rail" d="M122 36H132"/><path class="rail loop" d="M10 36q-10 0 -10 10v12q0 10 10 10h112q10 0 10 -10v-12q0 -10 -10 -10"/><path class="rail arrow" d="M132 51l5 -5m-5 5l-5 -5"/><text class="caption" x="66" y="79">1 or more times</text></g><path class="rail" d="M967.6000000000001 98H981.6000000000001"/><g transform="translate(981.6000000000001 86)"><rect class="node anchor" width="113.60000000000001" height="24" rx="5"/><text class="label anchor" x="56.800000000000004" y="16">end of string</text></g></g><path class="rail" d="M1135.2 110H1157.2"/><circle class="terminal" cx="1157.2" cy="110" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="1175.2" height="230"/><circle class="terminal" cx="18" cy="110" r="6"/><path class="rail" d="M18 110H40"/><g transform="translate(40 12)"><g transform="translate(0 86)"><rect class="node anchor" width="128" height="24" rx="5"/><text class="label anchor" x="64" y="16">start of string</text></g><path class="rail" d="M128 98H142"/><g transform="translate(142 20)"><path class="rail" d="M0 78H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="140.8" height="128" rx="6"/><text class="caption start charset" x="6" y="11">One of:</text><path class="rail" d="M0 78H10.000000000000007"/><g transform="translate(10.000000000000007 24)"><g transform="translate(0 0)"><rect class="node class" width="120.8" height="24" rx="5"/><text class="label class" x="60.4" y="16">word character</text></g><g transform="translate(39.599999999999994 28)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“+”</text></g><g transform="translate(39.599999999999994 56)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“-”</text></g><g transform="translate(39.599999999999994 84)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“.”</text></g></g><path class="rail" d="M130.8 78H140.8"/></g><path class="rail" d="M150.8 78H160.8"/><path class="rail loop" d="M10 78q-10 0 -10 10v54q0 10 10 10h140.8q10 0 10 -10v-54q0 -10 -10 -10"/><path class="rail arrow" d="M160.8 93l5 -5m-5 5l-5 -5"/><text class="caption" x="80.4" y="163">1 or more times</text></g><path class="rail" d="M302.8 98H316.8"/><g transform="translate(316.8 86)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“@”</text></g><path class="rail" d="M358.40000000000003 98H372.40000000000003"/><g transform="translate(372.40000000000003 34)"><path class="rail" d="M0 64H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="112" height="100" rx="6"/><text class="caption start charset" x="6" y="11">One of:</text><path class="rail" d="M0 64H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “z”</text></g><g transform="translate(18 28)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><g transform="translate(25.2 56)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“-”</text></g></g><path class="rail" d="M102 64H112"/></g><path class="rail" d="M122 64H132"/><path class="rail loop" d="M10 64q-10 0 -10 10v40q0 10 10 10h112q10 0 10 -10v-40q0 -10 -10 -10"/><path class="rail arrow" d="M132 79l5 -5m-5 5l-5 -5"/><text class="caption" x="66" y="135">1 or more times</text></g><path class="rail" d="M504.40000000000003 98H518.4000000000001"/><g transform="translate(518.4000000000001 0)"><path class="rail" d="M0 98H20"/><g transform="translate(20 10)"><rect class="frame" y="14" width="207.6" height="158" rx="6"/><text class="caption start" x="6" y="11">group #1</text><path class="rail" d="M0 88H10"/><g transform="translate(10 24)"><g transform="translate(0 52)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“.”</text></g><path class="rail" d="M41.6 64H55.6"/><g transform="translate(55.6 0)"><path class="rail" d="M0 64H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="112" height="100" rx="6"/><text class="caption start charset" x="6" y="11">One of:</text><path class="rail" d="M0 64H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “z”</text></g><g transform="translate(18 28)"><rect class="node class" width="56" height="24" rx="5"/><text class="label class" x="28" y="16">digit</text></g><g transform="translate(25.2 56)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“-”</text></g></g><path class="rail" d="M102 64H112"/></g><path class="rail" d="M122 64H132"/><path class="rail loop" d="M10 64q-10 0 -10 10v40q0 10 10 10h112q10 0 10 -10v-40q0 -10 -10 -10"/><path class="rail arrow" d="M132 79l5 -5m-5 5l-5 -5"/><text class="caption" x="66" y="135">1 or more times</text></g></g><path class="rail" d="M197.6 88H207.6"/></g><path class="rail" d="M227.6 98H247.6"/><path class="rail" d="M0 98q10 0 10 -10v-78q0 -10 10 -10H227.6q10 0 10 10v78q0 10 10 10"/><path class="rail loop" d="M20 98q-10 0 -10 10v74q0 10 10 10h207.6q10 0 10 -10v-74q0 -10 -10 -10"/><path class="rail arrow" d="M237.6 113l5 -5m-5 5l-5 -5"/><text class="caption" x="123.8" y="203">0 or more times</text></g><path class="rail" d="M766.0000000000001 98H780.0000000000001"/><g transform="translate(780.0000000000001 86)"><rect class="node escape" width="41.6" height="24" rx="5"/><text class="label escape" x="20.8" y="16">“.”</text></g><path class="rail" d="M821.6000000000001 98H835.6000000000001"/><g transform="translate(835.6000000000001 62)"><path class="rail" d="M0 36H10"/><g transform="translate(10 0)"><rect class="frame charset" y="14" width="112" height="44" rx="6"/><text class="caption start charset" x="6" y="11">One of:</text><path class="rail" d="M0 36H10"/><g transform="translate(10 24)"><g transform="translate(0 0)"><rect class="node charset" width="92" height="24" rx="5"/><text class="label charset" x="46" y="16">“a” to “z”</text></g></g><path class="rail" d="M102 36H112"/></g><path class="rail" d="M122 36H132"/><path class="rail loop" d="M10 36q-10 0 -10 10v12q0 10 10 10h112q10 0 10 -10v-12q0 -10 -10 -10"/><path class="rail arrow" d="M132 51l5 -5m-5 5l-5 -5"/><text class="caption" x="66" y="79">1 or more times</text></g><path class="rail" d="M967.6000000000001 98H981.6000000000001"/><g transform="translate(981.6000000000001 86)"><rect class="node anchor" width="113.60000000000001" height="24" rx="5"/><text class="label anchor" x="56.800000000000004" y="16">end of string</text></g></g><path class="rail" d="M1135.2 110H1157.2"/><circle class="terminal" cx="1157.2" cy="110" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws a* 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 82" width="196" height="82"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="34" r="6"/><path class="rail" d="M18 34H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 22H37.2"/><g transform="translate(37.2 10)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M78.80000000000001 22H116"/><path class="rail" d="M17.200000000000003 22q10 0 10 -10v-2q0 -10 10 -10H78.80000000000001q10 0 10 10v2q0 10 10 10"/><path class="rail loop" d="M37.2 22q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M88.80000000000001 37l5 -5m-5 5l-5 -5"/><text class="caption" x="58" y="55">0 or more times</text></g></g><path class="rail" d="M156 34H178"/><circle class="terminal" cx="178" cy="34" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="196" height="82"/><circle class="terminal" cx="18" cy="34" r="6"/><path class="rail" d="M18 34H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 22H37.2"/><g transform="translate(37.2 10)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M78.80000000000001 22H116"/><path class="rail" d="M17.200000000000003 22q10 0 10 -10v-2q0 -10 10 -10H78.80000000000001q10 0 10 10v2q0 10 10 10"/><path class="rail loop" d="M37.2 22q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M88.80000000000001 37l5 -5m-5 5l-5 -5"/><text class="caption" x="58" y="55">0 or more times</text></g></g><path class="rail" d="M156 34H178"/><circle class="terminal" cx="178" cy="34" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws a+? 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 239.20000000000002 72" width="239.20000000000002" height="72"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 12H58.80000000000001"/><g transform="translate(58.80000000000001 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M100.4 12H159.20000000000002"/><path class="rail loop" d="M58.80000000000001 12q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><text class="caption" x="79.60000000000001" y="45">1 or more times, lazy</text></g></g><path class="rail" d="M199.20000000000002 24H221.20000000000002"/><circle class="terminal" cx="221.20000000000002" cy="24" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="239.20000000000002" height="72"/><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 12H58.80000000000001"/><g transform="translate(58.80000000000001 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M100.4 12H159.20000000000002"/><path class="rail loop" d="M58.80000000000001 12q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><text class="caption" x="79.60000000000001" y="45">1 or more times, lazy</text></g></g><path class="rail" d="M199.20000000000002 24H221.20000000000002"/><circle class="terminal" cx="221.20000000000002" cy="24" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws a? 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.6 58" width="161.6" height="58"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="34" r="6"/><path class="rail" d="M18 34H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 22H19.999999999999996"/><g transform="translate(19.999999999999996 10)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M61.599999999999994 22H81.6"/><path class="rail" d="M-3.552713678800501e-15 22q10 0 10 -10v-2q0 -10 10 -10H61.599999999999994q10 0 10 10v2q0 10 10 10"/></g></g><path class="rail" d="M121.6 34H143.6"/><circle class="terminal" cx="143.6" cy="34" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="161.6" height="58"/><circle class="terminal" cx="18" cy="34" r="6"/><path class="rail" d="M18 34H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 22H19.999999999999996"/><g transform="translate(19.999999999999996 10)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M61.599999999999994 22H81.6"/><path class="rail" d="M-3.552713678800501e-15 22q10 0 10 -10v-2q0 -10 10 -10H61.599999999999994q10 0 10 10v2q0 10 10 10"/></g></g><path class="rail" d="M121.6 34H143.6"/><circle class="terminal" cx="143.6" cy="34" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws a{2,4} 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174.4 72" width="174.4" height="72"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 12H26.400000000000002"/><g transform="translate(26.400000000000002 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M68 12H94.4"/><path class="rail loop" d="M26.400000000000002 12q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M78 27l5 -5m-5 5l-5 -5"/><text class="caption" x="47.2" y="45">2 to 4 times</text></g></g><path class="rail" d="M134.4 24H156.4"/><circle class="terminal" cx="156.4" cy="24" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="174.4" height="72"/><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 12H26.400000000000002"/><g transform="translate(26.400000000000002 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g><path class="rail" d="M68 12H94.4"/><path class="rail loop" d="M26.400000000000002 12q-10 0 -10 10v2q0 10 10 10h41.6q10 0 10 -10v-2q0 -10 -10 -10"/><path class="rail arrow" d="M78 27l5 -5m-5 5l-5 -5"/><text class="caption" x="47.2" y="45">2 to 4 times</text></g></g><path class="rail" d="M134.4 24H156.4"/><circle class="terminal" cx="156.4" cy="24" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws a|b|c 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.6 112" width="161.6" height="112"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 12H20"/><g transform="translate(20 0)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g></g><path class="rail" d="M61.6 12H81.6"/><path class="rail" d="M0 12q10 0 10 10v12q0 10 10 10H20"/><g transform="translate(20 32)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M61.6 44q9.999999999999996 0 9.999999999999996 -9.999999999999996v-12.000000000000007q0 -9.999999999999996 9.999999999999996 -9.999999999999996H81.6"/><path class="rail" d="M0 12q10 0 10 10v44q0 10 10 10H20"/><g transform="translate(20 64)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“c”</text></g></g><path class="rail" d="M61.6 76q9.999999999999996 0 9.999999999999996 -9.999999999999996v-44.00000000000001q0 -9.999999999999996 9.999999999999996 -9.999999999999996H81.6"/></g></g><path class="rail" d="M121.6 24H143.6"/><circle class="terminal" cx="143.6" cy="24" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="161.6" height="112"/><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><path class="rail" d="M0 12H20"/><g transform="translate(20 0)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“a”</text></g></g><path class="rail" d="M61.6 12H81.6"/><path class="rail" d="M0 12q10 0 10 10v12q0 10 10 10H20"/><g transform="translate(20 32)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“b”</text></g></g><path class="rail" d="M61.6 44q9.999999999999996 0 9.999999999999996 -9.999999999999996v-12.000000000000007q0 -9.999999999999996 9.999999999999996 -9.999999999999996H81.6"/><path class="rail" d="M0 12q10 0 10 10v44q0 10 10 10H20"/><g transform="translate(20 64)"><g transform="translate(0 0)"><rect class="node literal" width="41.6" height="24" rx="5"/><text class="label literal" x="20.8" y="16">“c”</text></g></g><path class="rail" d="M61.6 76q9.999999999999996 0 9.999999999999996 -9.999999999999996v-44.00000000000001q0 -9.999999999999996 9.999999999999996 -9.999999999999996H81.6"/></g></g><path class="rail" d="M121.6 24H143.6"/><circle class="terminal" cx="143.6" cy="24" r="6"/></svg>"
 `;
 
 exports[`renderSvg > draws abc 1`] = `
 "<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 48" width="136" height="48"><style>
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
-</style><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="node literal" width="56" height="24" rx="5"/><text class="label literal" x="28" y="16">“abc”</text></g></g><path class="rail" d="M96 24H118"/><circle class="terminal" cx="118" cy="24" r="6"/></svg>"
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
+</style><rect class="bg" width="136" height="48"/><circle class="terminal" cx="18" cy="24" r="6"/><path class="rail" d="M18 24H40"/><g transform="translate(40 12)"><g transform="translate(0 0)"><rect class="node literal" width="56" height="24" rx="5"/><text class="label literal" x="28" y="16">“abc”</text></g></g><path class="rail" d="M96 24H118"/><circle class="terminal" cx="118" cy="24" r="6"/></svg>"
 `;

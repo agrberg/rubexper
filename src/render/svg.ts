@@ -14,21 +14,29 @@ const FLAG_NAMES = [
 ] as const;
 
 const STYLE = `
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .terminal { fill: #6b6659; }
-  .node { stroke: #6b6659; stroke-width: 1; }
-  .node.literal { fill: #dae9a0; }
-  .node.escape { fill: #f4dca7; }
-  .node.class { fill: #c9d7ee; }
-  .node.anchor { fill: #6b6659; }
-  .node.charset { fill: #e4e1d6; }
-  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #222; }
-  .label.anchor { fill: #fff; }
-  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #555; text-anchor: middle; }
-  .caption.start { text-anchor: start; }
-  .frame { fill: none; stroke: #908c83; stroke-width: 1.5; stroke-dasharray: 5 3; }
-  .frame.assertion { stroke: #b4561f; }
-  .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
+  .bg { fill: #0f172a; }
+  .rail { fill: none; stroke: #0092b8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .terminal { fill: #00d3f3; }
+  .node { stroke-width: 1.5; }
+  .node.literal { fill: #020618; stroke: #00d3f3; }
+  .node.escape { fill: #020618; stroke: #a684ff; }
+  .node.class { fill: #020618; stroke: #00d492; }
+  .node.anchor { fill: #f6339a; stroke: #f6339a; }
+  .node.charset { fill: #1d293d; stroke: #00b8db; }
+  .label { font: 13px ui-monospace, Menlo, monospace; text-anchor: middle; fill: #a2f4fd; }
+  .label.escape { fill: #ddd6ff; }
+  .label.class { fill: #96f7d2; }
+  .label.anchor { fill: #020618; }
+  .caption { font: 11px ui-sans-serif, system-ui, sans-serif; fill: #00d3f3; text-anchor: middle; }
+  .caption.legend { text-anchor: start; }
+  .caption.start { text-anchor: start; fill: #ffdf20; }
+  .caption.assertion { fill: #fb64b6; }
+  .caption.charset { fill: #8ec5ff; }
+  .caption.negated { fill: #ffb86a; }
+  .frame { fill: none; stroke: #fdc700; stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .frame.assertion { stroke: #f6339a; }
+  .frame.charset { stroke: #51a2ff; stroke-dasharray: none; fill: #1a2744; }
+  .frame.negated { stroke: #ff8904; fill: #2b1c12; }
 `;
 
 export function renderSvg(root: Seq, flags = ''): string {
@@ -45,7 +53,8 @@ export function renderSvg(root: Seq, flags = ''): string {
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">` +
     `<style>${STYLE}</style>` +
-    (legend ? `<text class="caption start" x="${MARGIN}" y="${MARGIN + 6}">${legend}</text>` : '') +
+    `<rect class="bg" width="${width}" height="${height}"/>` +
+    (legend ? `<text class="caption legend" x="${MARGIN}" y="${MARGIN + 6}">${legend}</text>` : '') +
     `<circle class="terminal" cx="${startX}" cy="${y}" r="${END_RADIUS}"/>` +
     `<path class="rail" d="M${startX} ${y}H${boxX}"/>` +
     `<g transform="translate(${boxX} ${legendH + MARGIN})">${box.svg}</g>` +
