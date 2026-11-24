@@ -484,7 +484,7 @@ function codePointOf(node: Node): number | undefined {
   return undefined;
 }
 
-/** Width in characters of a node list, or null when Onigmo would reject it inside a look-behind. */
+// null when Onigmo would reject the width inside a look-behind.
 function fixedWidth(items: Node[]): number | null {
   let total = 0;
   for (const item of items) {

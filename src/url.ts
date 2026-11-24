@@ -5,12 +5,11 @@ export interface RegexInput {
 
 const LITERAL = /^\/(.*)\/([mixn]*)$/s;
 
-/** Hash for a shareable link. Always a Ruby literal, so a pattern that itself looks like /a/ stays unambiguous. */
+// Always a /…/ literal, so a pattern that itself looks like /a/ stays unambiguous.
 export function encodeHash({ source, flags }: RegexInput): string {
   return encodeURIComponent(`/${source}/${flags}`);
 }
 
-/** A /…/flags literal gives source and flags. Any other hash is the whole pattern source with no flags. */
 export function decodeHash(hash: string): RegexInput {
   const raw = hash.startsWith('#') ? hash.slice(1) : hash;
   let text: string;

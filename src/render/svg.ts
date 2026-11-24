@@ -24,7 +24,6 @@ const STYLE = `
   .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
 `;
 
-/** A complete, standalone SVG document for one parsed pattern. */
 export function renderSvg(root: Seq): string {
   const box = layoutRoot(root);
   const startX = MARGIN + END_RADIUS;

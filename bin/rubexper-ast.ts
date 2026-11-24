@@ -1,5 +1,4 @@
-// Reads a JSON array of {source, flags} from stdin and prints one result per entry:
-// {ok: true, ast} or {ok: false, error, position}. spec/conformance_spec.rb drives this.
+// Protocol for spec/conformance_spec.rb: JSON [{source, flags}] on stdin, one {ok, ast | error} per entry on stdout.
 import { parse } from '../src/parser/parser.ts';
 import { RegexSyntaxError } from '../src/parser/ast.ts';
 

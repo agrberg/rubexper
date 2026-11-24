@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Writes src/parser/properties.ts: every \p{...} name this Ruby accepts, normalized
-# the way Onigmo normalizes (lowercase, no space, underscore, or hyphen).
-# Candidates are the regexp_parser gem's names plus every 1-4 letter name, because the
-# gem omits aliases such as L, Lu, and Latn. Ruby itself decides which candidates count.
+# Writes src/parser/properties.ts from every \p{...} name this Ruby accepts. The gem omits aliases
+# such as L, Lu, and Latn, so candidates also include every 1-4 letter name.
 require 'regexp_parser'
 
 def accepted?(name)

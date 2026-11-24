@@ -10,10 +10,7 @@ export interface Alt {
   c: Seq[];
 }
 
-/**
- * Canonical tree. spec/support/normalize.rb builds the same shape from the regexp_parser gem,
- * and spec/conformance_spec.rb compares the two.
- */
+// Must match the shape built by spec/support/normalize.rb.
 export type Node =
   | Seq
   | Alt

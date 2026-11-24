@@ -4,9 +4,6 @@ require 'json'
 require 'open3'
 require_relative 'support/normalize'
 
-# Ground truth: the regexp_parser gem. The TypeScript parser must produce the same
-# canonical tree for every pattern in the corpus, and must reject every pattern in
-# invalid.txt (each one also fails Regexp.new).
 RSpec.describe 'TypeScript parser conformance' do
   def self.lines(name)
     File.readlines(File.join(__dir__, name), chomp: true).reject(&:empty?)

@@ -2,9 +2,6 @@
 
 require 'regexp_parser'
 
-# Turns a regexp_parser tree into the canonical JSON-able shape that
-# src/parser/ast.ts emits. Raises on any expression it does not map, so a new
-# construct fails loudly instead of being skipped.
 module Normalize
   SYNTAX = 'ruby/3.4'
   QUANTIFIER_MODES = { greedy: 'greedy', reluctant: 'lazy', possessive: 'possessive' }.freeze

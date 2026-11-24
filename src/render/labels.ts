@@ -36,7 +36,6 @@ const ESCAPE_NAMES: Readonly<Record<string, string>> = {
   e: 'escape',
 };
 
-/** The text inside a leaf box. Literal runs and escapes quote the character; classes and anchors name it. */
 export function leafLabel(node: Node): string {
   switch (node.k) {
     case 'lit':

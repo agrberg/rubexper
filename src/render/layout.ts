@@ -183,7 +183,6 @@ function leaf(label: string, cls: string): Box {
   return { w, h: ROW_H, mid: ROW_H / 2, svg };
 }
 
-/** Items stacked vertically and centered, the way regexper draws a character set. */
 function stack(items: Box[]): Box {
   const w = Math.max(...items.map((b) => b.w));
   let y = 0;
