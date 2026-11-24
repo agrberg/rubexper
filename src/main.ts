@@ -43,7 +43,7 @@ function render(): void {
   const input = currentInput();
   history.replaceState(null, '', `#${encodeHash(input)}`);
   try {
-    currentSvg = renderSvg(parse(input.source, input.flags));
+    currentSvg = renderSvg(parse(input.source, input.flags), input.flags);
     diagram.innerHTML = currentSvg;
     errorBox.hidden = true;
   } catch (error) {

@@ -4,6 +4,14 @@ import { layoutRoot } from './layout.ts';
 const MARGIN = 12;
 const END_RADIUS = 6;
 const END_RAIL = 16;
+const LEGEND_H = 18;
+const LEGEND_CHAR_W = 6.5;
+const FLAG_NAMES = [
+  ['i', 'ignore case'],
+  ['m', 'dot matches newline'],
+  ['x', 'extended'],
+  ['n', 'no encoding'],
+] as const;
 
 const STYLE = `
   .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -23,20 +31,24 @@ const STYLE = `
   .frame.charset { stroke-dasharray: none; fill: #f7f6f0; }
 `;
 
-export function renderSvg(root: Seq): string {
+export function renderSvg(root: Seq, flags = ''): string {
   const box = layoutRoot(root);
   const startX = MARGIN + END_RADIUS;
   const boxX = startX + END_RADIUS + END_RAIL;
   const endX = boxX + box.w + END_RAIL + END_RADIUS;
-  const width = endX + END_RADIUS + MARGIN;
-  const height = box.h + 2 * MARGIN;
-  const y = MARGIN + box.mid;
+  const names = FLAG_NAMES.filter(([flag]) => flags.includes(flag)).map(([, name]) => name);
+  const legend = names.length ? `Flags: ${names.join(', ')}` : '';
+  const legendH = legend ? LEGEND_H : 0;
+  const width = Math.max(endX + END_RADIUS + MARGIN, 2 * MARGIN + legend.length * LEGEND_CHAR_W);
+  const height = legendH + box.h + 2 * MARGIN;
+  const y = legendH + MARGIN + box.mid;
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">` +
     `<style>${STYLE}</style>` +
+    (legend ? `<text class="caption start" x="${MARGIN}" y="${MARGIN + 6}">${legend}</text>` : '') +
     `<circle class="terminal" cx="${startX}" cy="${y}" r="${END_RADIUS}"/>` +
     `<path class="rail" d="M${startX} ${y}H${boxX}"/>` +
-    `<g transform="translate(${boxX} ${MARGIN})">${box.svg}</g>` +
+    `<g transform="translate(${boxX} ${legendH + MARGIN})">${box.svg}</g>` +
     `<path class="rail" d="M${boxX + box.w} ${y}H${endX}"/>` +
     `<circle class="terminal" cx="${endX}" cy="${y}" r="${END_RADIUS}"/>` +
     `</svg>`

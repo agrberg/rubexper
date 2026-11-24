@@ -43,6 +43,31 @@ describe('renderSvg', () => {
     expect(renderSvg(parse('a?'))).toContain('q10 0 10 -10');
   });
 
+  describe('flags legend', () => {
+    const legend = (flags: string) => /Flags: ([^<]*)</.exec(renderSvg(parse('a'), flags))?.[1];
+
+    it('names each flag in a fixed order', () => {
+      expect(legend('i')).toBe('ignore case');
+      expect(legend('xim')).toBe('ignore case, dot matches newline, extended');
+      expect(legend('n')).toBe('no encoding');
+    });
+
+    it('lists a repeated flag once', () => {
+      expect(legend('ii')).toBe('ignore case');
+    });
+
+    it('draws no legend without a known flag', () => {
+      expect(legend('')).toBeUndefined();
+      expect(legend('gz')).toBeUndefined();
+      expect(renderSvg(parse('a'))).toBe(renderSvg(parse('a'), ''));
+    });
+
+    it('makes room above the diagram for the legend', () => {
+      const height = (flags: string) => Number(/viewBox="0 0 \S+ (\S+)"/.exec(renderSvg(parse('a'), flags))![1]);
+      expect(height('i')).toBeGreaterThan(height(''));
+    });
+  });
+
   describe('paths and arrows', () => {
     const DOWN_ARROW = 'l5 -5m-5 5l-5 -5';
     const UP_ARROW = 'l5 5m-5 -5l-5 5';
