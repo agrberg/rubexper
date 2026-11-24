@@ -1,0 +1,70 @@
+:root {
+  color-scheme: light;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+body {
+  margin: 0;
+  padding: 24px;
+  background: #fff;
+  color: #222;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+header p {
+  margin: 4px 0 16px;
+  color: #555;
+}
+form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.slash {
+  font:
+    1.2rem ui-monospace,
+    Menlo,
+    monospace;
+  color: #6b6659;
+}
+input {
+  font:
+    1rem ui-monospace,
+    Menlo,
+    monospace;
+  padding: 8px;
+  border: 1px solid #908c83;
+  border-radius: 6px;
+}
+#source {
+  flex: 1;
+  min-width: 0;
+}
+#flags {
+  width: 4.5em;
+}
+#error {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #fde8e4;
+  color: #8a1f11;
+  border: 1px solid #e8a79c;
+}
+#diagram {
+  margin-top: 16px;
+  overflow-x: auto;
+}
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+button {
+  padding: 6px 12px;
+  border: 1px solid #908c83;
+  border-radius: 6px;
+  background: #f7f6f0;
+  cursor: pointer;
+}
