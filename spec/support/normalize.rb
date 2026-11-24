@@ -23,13 +23,27 @@ module Normalize
     kids = children(exp)
     case exp.type
     when :expression then { 'k' => 'seq', 'c' => kids }
-    when :group then { 'k' => 'group', 't' => exp.token.to_s, 'c' => kids }
-    when :assertion then { 'k' => 'group', 't' => exp.token.to_s, 'c' => kids }
-    when :set then { 'k' => 'set', 't' => exp.token.to_s, 'c' => kids }
+    when :group then group(exp, kids)
+    when :assertion then { 'k' => 'group', 't' => exp.token.to_s, 's' => exp.text, 'c' => kids }
+    when :set then { 'k' => 'set', 't' => exp.token.to_s, 'neg' => exp.respond_to?(:negative?) && exp.negative?, 'c' => kids }
     when :meta then meta(exp, kids)
-    when :conditional then { 'k' => 'cond', 't' => exp.token.to_s, 'c' => kids }
+    when :conditional then conditional(exp, kids)
     else leaf(exp)
     end
+  end
+
+# regexp_parser files (?#...) as a group and drops the closing paren from an option switch such as (?i).
+def group(exp, kids)
+  return { 'k' => 'comment', 's' => exp.text } if exp.token == :comment
+
+  text = exp.token == :options_switch ? "#{exp.text})" : exp.text
+  { 'k' => 'group', 't' => exp.token.to_s, 's' => text, 'c' => kids }
+end
+
+def conditional(exp, kids)
+    return { 'k' => 'cond', 't' => 'condition', 's' => exp.text, 'c' => [] } if exp.token == :condition
+
+    { 'k' => 'cond', 't' => exp.token.to_s, 'c' => kids }
   end
 
   def children(exp)
@@ -40,7 +54,7 @@ module Normalize
 
   # One quantifier wraps the one atom it follows; merged literals are split per character.
   def wrap(exp)
-    return [] if exp.type == :free_space
+    return free_space(exp) if exp.type == :free_space
 
     if exp.type == :literal && exp.text.length > 1
       chars = exp.text.chars.map { |c| { 'k' => 'lit', 's' => c } }
@@ -50,7 +64,13 @@ module Normalize
     [quantify(exp, node(exp))]
   end
 
-  def quantify(exp, atom)
+def free_space(exp)
+  return [] unless exp.token == :comment
+
+  [{ 'k' => 'comment', 's' => exp.text.chomp }]
+end
+
+def quantify(exp, atom)
     q = exp.quantifier
     return atom unless q
 
