@@ -1,0 +1,8 @@
+a b c
+a # comment
+a b|c d
+(?x) a b
+(?x: a b ) c
+[a b]
+a\ b
+a [ ]b
