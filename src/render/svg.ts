@@ -6,8 +6,7 @@ const END_RADIUS = 6;
 const END_RAIL = 16;
 
 const STYLE = `
-  .rail { fill: none; stroke: #6b6659; stroke-width: 2; }
-  .loop { stroke-width: 1.5; }
+  .rail { fill: none; stroke: #6b6659; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .terminal { fill: #6b6659; }
   .node { stroke: #6b6659; stroke-width: 1; }
   .node.literal { fill: #dae9a0; }
@@ -35,8 +34,6 @@ export function renderSvg(root: Seq): string {
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">` +
     `<style>${STYLE}</style>` +
-    `<defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">` +
-    `<path d="M0 0L10 5L0 10z" fill="#6b6659"/></marker></defs>` +
     `<circle class="terminal" cx="${startX}" cy="${y}" r="${END_RADIUS}"/>` +
     `<path class="rail" d="M${startX} ${y}H${boxX}"/>` +
     `<g transform="translate(${boxX} ${MARGIN})">${box.svg}</g>` +

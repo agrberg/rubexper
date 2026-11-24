@@ -14,18 +14,26 @@ const ROW_H = 24;
 const PAD = 10;
 const GAP = 14;
 const LABEL_H = 14;
-const FORK = 20;
-const LOOP_PAD = 16;
+const CURVE = 10;
+const ARROW = 5;
+const FORK = 2 * CURVE;
 
 const textWidth = (text: string): number => Array.from(text).length * CHAR_W;
 const escapeXml = (text: string): string => text.replace(/[&<>"']/g, (c) => `&#${c.codePointAt(0)};`);
 const at = (box: Box, x: number, y: number): string => `<g transform="translate(${x} ${y})">${box.svg}</g>`;
 const rail = (x1: number, x2: number, y: number): string =>
   x1 === x2 ? '' : `<path class="rail" d="M${x1} ${y}H${x2}"/>`;
-const curve = (x1: number, y1: number, x2: number, y2: number): string =>
-  y1 === y2
-    ? `<path class="rail" d="M${x1} ${y1}H${x2}"/>`
-    : `<path class="rail" d="M${x1} ${y1}C${(x1 + x2) / 2} ${y1} ${(x1 + x2) / 2} ${y2} ${x2} ${y2}"/>`;
+const fork = (x1: number, y1: number, x2: number, y2: number): string => {
+  const dy = y2 - y1;
+  if (dy === 0) return rail(x1, x2, y1);
+  const sign = Math.sign(dy);
+  const r = Math.min(CURVE, Math.abs(dy) / 2, (x2 - x1) / 2);
+  return `<path class="rail" d="M${x1} ${y1}q${r} 0 ${r} ${sign * r}v${dy - 2 * sign * r}q0 ${sign * r} ${r} ${sign * r}H${x2}"/>`;
+};
+const arrowAt = (x: number, y: number, pointing: 'up' | 'down'): string => {
+  const dy = pointing === 'down' ? -ARROW : ARROW;
+  return `<path class="rail arrow" d="M${x} ${y}l${ARROW} ${dy}m${-ARROW} ${-dy}l${-ARROW} ${dy}"/>`;
+};
 const text = (label: string, x: number, y: number, cls: string): string =>
   `<text class="${cls}" x="${x}" y="${y}">${escapeXml(label)}</text>`;
 
@@ -89,8 +97,8 @@ class Layout {
     const mid = ys[0]!;
     let svg = '';
     branches.forEach((b, i) => {
-      svg += curve(0, mid, FORK, ys[i]!) + at(b, FORK, ys[i]! - b.mid) + rail(FORK + b.w, FORK + inner, ys[i]!);
-      svg += curve(FORK + inner, ys[i]!, w, mid);
+      svg += fork(0, mid, FORK, ys[i]!) + at(b, FORK, ys[i]! - b.mid) + rail(FORK + b.w, FORK + inner, ys[i]!);
+      svg += fork(FORK + inner, ys[i]!, w, mid);
     });
     return { w, h: y - 8, mid, svg };
   }
@@ -103,18 +111,28 @@ class Layout {
       .filter(Boolean)
       .join(', ');
     if (!loops && !skips && !label) return inner;
-    const padX = loops || skips ? LOOP_PAD : 0;
-    const top = skips ? 18 : 0;
-    const bottom = loops ? 18 : 0;
+    const padX = skips ? 2 * CURVE : loops ? CURVE : 0;
+    const top = skips ? CURVE : 0;
     const w = Math.max(inner.w + 2 * padX, textWidth(label) + 8);
     const innerX = (w - inner.w) / 2;
     const mid = top + inner.mid;
     const innerBottom = top + inner.h;
-    let svg = rail(0, innerX, mid) + at(inner, innerX, top) + rail(innerX + inner.w, w, mid);
-    if (skips) svg += `<path class="rail" d="M8 ${mid}V14Q8 8 14 8H${w - 14}Q${w - 8} 8 ${w - 8} 14V${mid}"/>`;
+    const right = innerX + inner.w;
+    let svg = rail(0, innerX, mid) + at(inner, innerX, top) + rail(right, w, mid);
+    if (skips) {
+      const vert = Math.max(0, inner.mid - CURVE);
+      const x0 = innerX - 2 * CURVE;
+      const d = `M${x0} ${mid}q${CURVE} 0 ${CURVE} ${-CURVE}v${-vert}q0 ${-CURVE} ${CURVE} ${-CURVE}H${right}q${CURVE} 0 ${CURVE} ${CURVE}v${vert}q0 ${CURVE} ${CURVE} ${CURVE}`;
+      svg += `<path class="rail" d="${d}"/>`;
+      if (node.mode === 'lazy') svg += arrowAt(x0 + CURVE, mid - CURVE - ARROW, 'up');
+    }
+    let bottom = 0;
     if (loops) {
-      const y = innerBottom + 9;
-      svg += `<path class="rail loop" marker-end="url(#arrow)" d="M${w - 8} ${mid}V${y - 6}Q${w - 8} ${y} ${w - 14} ${y}H14Q8 ${y} 8 ${y - 6}V${mid}"/>`;
+      const vert = Math.max(0, inner.h - inner.mid - CURVE);
+      const d = `M${innerX} ${mid}q${-CURVE} 0 ${-CURVE} ${CURVE}v${vert}q0 ${CURVE} ${CURVE} ${CURVE}h${inner.w}q${CURVE} 0 ${CURVE} ${-CURVE}v${-vert}q0 ${-CURVE} ${-CURVE} ${-CURVE}`;
+      svg += `<path class="rail loop" d="${d}"/>`;
+      if (node.mode !== 'lazy') svg += arrowAt(right + CURVE, mid + CURVE + ARROW, 'down');
+      bottom = CURVE;
     }
     const labelH = label ? LABEL_H : 0;
     if (label) svg += text(label, w / 2, innerBottom + bottom + 11, 'caption');
