@@ -2,7 +2,7 @@
 
 Railroad diagrams for Ruby (Onigmo) regular expressions. Live site: <https://agrberg.github.io/rubexper/>.
 
-[regexper](https://gitlab.com/javallone/regexper-static) parses only JavaScript syntax. rubexper parses Ruby syntax, so possessive quantifiers, atomic groups, `\h`, `\K`, `\R`, `\G`, conditionals, and `\g<name>` calls draw correctly. Unsupported or invalid patterns show an error message and no diagram. The site never draws a wrong diagram.
+[regexper](https://regexper.com/) parses only JavaScript syntax. rubexper parses Ruby syntax, so possessive quantifiers, atomic groups, `\h`, `\K`, `\R`, `\G`, conditionals, and `\g<name>` calls draw correctly. Unsupported or invalid patterns show an error message and no diagram. The site never draws a wrong diagram.
 
 The page runs in the browser. The pattern stays in the URL hash, so the host never receives it.
 
@@ -34,4 +34,3 @@ CI runs `format:check`, `lint`, `test`, and `build`, plus `bundle exec rspec` in
 
 - [ARCHITECTURE.md](ARCHITECTURE.md): how the parser, renderer, and conformance spec fit together.
 - [CLAUDE.md](CLAUDE.md): guidance for Claude Code.
-- [Design spec](docs/superpowers/specs/2026-11-24-rubexper-design.md): original goals and decisions.

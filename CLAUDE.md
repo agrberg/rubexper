@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static site that draws Ruby (Onigmo) regex as railroad diagrams. See [README.md](README.md) for use and [ARCHITECTURE.md](ARCHITECTURE.md) for the design. The original spec is `docs/superpowers/specs/2026-11-24-rubexper-design.md`. Where the spec and the code differ, the code is correct (the parser has no separate lexer, and the AST kinds are shorter).
+A static site that draws Ruby (Onigmo) regex as railroad diagrams. See [README.md](README.md) for use and [ARCHITECTURE.md](ARCHITECTURE.md) for the design.
 
 ## Commands
 

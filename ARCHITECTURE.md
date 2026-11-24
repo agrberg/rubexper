@@ -24,14 +24,14 @@ input (source + flags)
 
 `parser/ast.ts` defines `Node` as a union with a short tag `k`. Fields are short on purpose, because the Ruby spec compares this JSON with the normalized `regexp_parser` tree.
 
-| `k` | Meaning |
-|---|---|
-| `seq`, `alt` | sequence and alternation |
-| `lit`, `esc`, `cls`, `anchor`, `posix`, `prop`, `ref`, `call`, `comment` | leaf nodes, source text in `s` |
-| `q` | quantifier with `min`, `max`, `mode` (`greedy`, `lazy`, `possessive`) and one child |
-| `group` | all group and assertion kinds, subtype in `t` |
-| `set` | character class, with `neg` and subtype in `t` |
-| `cond` | conditional |
+| `k`                                                                      | Meaning                                                                             |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| `seq`, `alt`                                                             | sequence and alternation                                                            |
+| `lit`, `esc`, `cls`, `anchor`, `posix`, `prop`, `ref`, `call`, `comment` | leaf nodes, source text in `s`                                                      |
+| `q`                                                                      | quantifier with `min`, `max`, `mode` (`greedy`, `lazy`, `possessive`) and one child |
+| `group`                                                                  | all group and assertion kinds, subtype in `t`                                       |
+| `set`                                                                    | character class, with `neg` and subtype in `t`                                      |
+| `cond`                                                                   | conditional                                                                         |
 
 The shape must match `spec/support/normalize.rb`. If you change one, change the other.
 
