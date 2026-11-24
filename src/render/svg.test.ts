@@ -50,6 +50,8 @@ describe('renderSvg', () => {
       expect(legend('i')).toBe('ignore case');
       expect(legend('xim')).toBe('ignore case, dot matches newline, extended');
       expect(legend('n')).toBe('no encoding');
+      expect(legend('u')).toBe('UTF-8 encoding');
+      expect(legend('unmix')).toBe('ignore case, dot matches newline, extended, no encoding, UTF-8 encoding');
     });
 
     it('lists a repeated flag once', () => {

@@ -16,6 +16,10 @@ describe('url hash', () => {
     expect(decodeHash('#/ab+/i')).toEqual({ source: 'ab+', flags: 'i' });
   });
 
+  it('reads the u flag', () => {
+    expect(decodeHash('#/ab+/iu')).toEqual({ source: 'ab+', flags: 'iu' });
+  });
+
   it('reads any other hash as the whole pattern with no flags', () => {
     expect(decodeHash('#a%2Bb')).toEqual({ source: 'a+b', flags: '' });
     expect(decodeHash('#/ab+/z')).toEqual({ source: '/ab+/z', flags: '' });

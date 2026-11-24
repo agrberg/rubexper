@@ -12,6 +12,7 @@ const FLAG_NAMES = [
   ['m', 'dot matches newline'],
   ['x', 'extended'],
   ['n', 'no encoding'],
+  ['u', 'UTF-8 encoding'],
 ] as const;
 
 const C = COLORS;

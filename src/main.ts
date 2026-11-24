@@ -21,7 +21,7 @@ app.innerHTML = `
     <span class="slash">/</span>
     <input id="source" type="text" spellcheck="false" autocomplete="off" autofocus aria-label="Regular expression" />
     <span class="slash">/</span>
-    <input id="flags" type="text" spellcheck="false" autocomplete="off" maxlength="4" pattern="[mixn]*" aria-label="Flags" />
+    <input id="flags" type="text" spellcheck="false" autocomplete="off" maxlength="5" pattern="[mixnu]*" aria-label="Flags" />
   </form>
   <div id="error" role="alert" hidden></div>
   <div id="diagram" aria-live="polite"></div>
@@ -43,7 +43,7 @@ const diagram = app.querySelector<HTMLDivElement>('#diagram')!;
 let currentSvg = '';
 
 function currentInput(): RegexInput {
-  return { source: sourceInput.value, flags: flagsInput.value.replace(/[^mixn]/g, '') };
+  return { source: sourceInput.value, flags: flagsInput.value.replace(/[^mixnu]/g, '') };
 }
 
 function render(): void {

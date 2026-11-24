@@ -3,7 +3,7 @@ export interface RegexInput {
   flags: string;
 }
 
-const LITERAL = /^\/(.*)\/([mixn]*)$/s;
+const LITERAL = /^\/(.*)\/([mixnu]*)$/s;
 
 // Always a /…/ literal, so a pattern that itself looks like /a/ stays unambiguous.
 export function encodeHash({ source, flags }: RegexInput): string {

@@ -8,7 +8,7 @@ The page runs in the browser. The pattern stays in the URL hash, so the host nev
 
 ## Share a pattern
 
-The URL hash holds the pattern as a Ruby literal: `#<encodeURIComponent("/source/flags")>`. Flags are any of `m`, `i`, `x`, `n`. If the hash is not a `/…/flags` literal, the whole hash is the pattern with no flags.
+The URL hash holds the pattern as a Ruby literal: `#<encodeURIComponent("/source/flags")>`. Flags are any of `m`, `i`, `x`, `n`, `u`. If the hash is not a `/…/flags` literal, the whole hash is the pattern with no flags.
 
 Click **Copy link as comment** to copy `# https://…#…`, ready to paste above a regex in Ruby code.
 
