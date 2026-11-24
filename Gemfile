@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem 'regexp_parser'
+gem 'rspec'
