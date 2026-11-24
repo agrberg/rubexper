@@ -31,9 +31,9 @@ export const EXAMPLES: readonly Example[] = [
     note: 'The x flag ignores spaces and allows # comments. Group names become keys, as in match[:verb].',
   },
   {
-    title: 'Split text on any line break',
-    source: '\\R',
-    flags: '',
-    note: '\\R matches \\n, \\r\\n, and \\r. Use it for text from a textarea, where the line ending depends on the browser.',
+    title: 'Markdown front matter at the top of a file',
+    source: '\\A---\\R(?<front_matter>.*?)^---$',
+    flags: 'm',
+    note: '\\A matches only at the start of the whole string, so a --- later in the file does not start front matter. ^ and $ match at every line, so the closing --- can sit on any line. The m flag makes . match newlines, which JavaScript calls the s flag. \\R matches any line break.',
   },
 ];
